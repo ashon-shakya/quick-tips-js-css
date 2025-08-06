@@ -1,0 +1,119 @@
+:root {
+  font-family: "Roboto", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3d card album effect */
+.wrapper {
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  padding: 10px;
+  gap: 0px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card + div {
+  margin-left: -10%;
+  flex-shrink: 0;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;
+  background-color: white;
+  border: 5px solid white;
+
+  gap: 30px;
+  overflow: hidden;
+  box-shadow: 5px 6px 11px 4px #c1c1c1;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  transform: perspective(600px) rotateY(10deg) translateY(20px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.card:hover {
+  transform: perspective(500px) rotatey(0deg) translateY(0px);
+}
+
+.card:hover + div {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* extra card css */
+
+.gradient1 {
+  --gradient-color: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+
+.gradient2 {
+  --gradient-color: linear-gradient(
+    90deg,
+    rgb(106 230 248) 0%,
+    rgb(21 255 219) 50%,
+    rgb(29 245 225) 100%
+  );
+}
+
+.gradient3 {
+  --gradient-color: linear-gradient(
+    90deg,
+    rgb(52, 249, 95) 0%,
+    rgb(19, 179, 35) 50%,
+    rgb(83, 245, 83) 100%
+  );
+}
+
+.icon {
+  width: 100%;
+  background: var(--gradient-color);
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  color: white;
+
+  border-bottom-right-radius: 200px 100px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.detail > div > button {
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  border: 0px;
+  background: var(--gradient-color);
+  color: white;
+}
+
+.detail > div > h3 {
+  margin: 0;
+  padding: 0;
+}
