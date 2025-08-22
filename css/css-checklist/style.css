@@ -1,0 +1,93 @@
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("grocery-bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  box-sizing: border-box;
+  min-height: 400px;
+  width: 300px;
+  background-color: rgba(75, 75, 75, 0.202);
+  padding: 15px;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: aliceblue;
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 2px 5px 1px #56565680, inset 2px 2px 15px 1px #ffffff80;
+}
+
+.container > .heading {
+  text-align: center;
+}
+
+.container > ul {
+  padding: 0px 10px;
+}
+
+.container > ul > li {
+  list-style-type: none;
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border-bottom: 1px white solid;
+}
+
+/* css for checkbox */
+.checklist > li {
+  width: auto;
+  position: relative;
+}
+
+.checklist > li > input[type="checkbox"] {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 2px white solid;
+  border-radius: 5px;
+  -webkit-appearance: none;
+}
+
+/* css style when checked */
+.checklist > li > input[type="checkbox"]:checked {
+  background-color: rgb(147, 175, 220);
+}
+
+/* css label styling */
+.checklist > li > label {
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* css label style when checked */
+.checklist > li > input[type="checkbox"]:checked + label {
+  color: grey;
+}
+
+/* strike through line css */
+.checklist > li > input[type="checkbox"] + label > i {
+  height: 2px;
+  background: grey;
+  position: absolute;
+  width: 0%;
+  transition: width 0.2s ease-in-out;
+  top: 50%;
+}
+
+/* strike through line css when item is checked */
+.checklist > li > input[type="checkbox"]:checked + label > i {
+  width: 100%;
+}
