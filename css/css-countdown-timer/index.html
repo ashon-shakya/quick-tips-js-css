@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #282c34;
+        font-family: Arial, sans-serif;
+      }
+
+      .countdown {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+
+      .circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#3498db 0%, #62b4eb 100%, transparent 0%);
+      }
+
+      .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        font-weight: lighter;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="countdown">
+      <div class="circle" id="circle">
+        <div class="number" id="timer">10</div>
+      </div>
+    </div>
+
+    <script>
+      const duration = 10; // Timer duration in seconds
+      const circle = document.getElementById("circle");
+      const timer = document.getElementById("timer");
+
+      let timeLeft = duration;
+
+      // Update the timer every second
+      const countdownInterval = setInterval(() => {
+        timeLeft--;
+
+        // Update the text inside the timer
+        timer.textContent = timeLeft;
+
+        // Update the conic-gradient based on time left
+        const percentage = ((duration - timeLeft) / duration) * 100;
+        circle.style.background = `conic-gradient(#3498db ${percentage}%, transparent 0%)`;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval); // Stop the timer
+          timer.textContent = "Done!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
