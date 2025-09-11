@@ -1,0 +1,37 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+img {
+  width: 700px;
+  height: auto;
+  box-shadow: 10px 1px 1px 1px grey;
+}
+
+.image-clip-1 {
+  /* image with alpha for mask */
+  mask-image: url("./clip_logo_1.png");
+  /* does not repat mask image */
+  mask-repeat: no-repeat;
+  /* centers the masks */
+  mask-position: center;
+  /* resizes masks to fit the main image */
+  mask-size: contain;
+}
+
+.image-clip-2 {
+  mask-image: url("./clip_logo_2.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
