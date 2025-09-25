@@ -1,0 +1,33 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.background{
+    background-image: url('./bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgb(29, 29, 29);
+    background-color: rgba(255, 255, 255, 0.185);
+    border-radius: 50px;
+    height: 500px;
+    width: 400px;
+    cursor: pointer;
+}
+
+.frosted-glass{
+    backdrop-filter: blur(10px);
+    border: 2px #c7c7c73b solid;
+}
