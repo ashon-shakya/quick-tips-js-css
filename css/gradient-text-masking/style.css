@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin:0;
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: auto;
+    height: auto;
+    background: rgb(53,68,179);
+    background: linear-gradient(90deg, rgba(53,68,179,1) 0%, rgba(12,106,176,1) 22%, rgba(137,35,80,1) 66%, rgba(255,0,96,1) 100%);
+    font-size: 100px;
+    font-family: fantasy;
+}
+
+.gradient-clip{
+    background-clip: text;
+    color: transparent;
+}
+
