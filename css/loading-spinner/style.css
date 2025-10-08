@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.container {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey border */
+  border-top: 10px solid #3498db; /* Blue border */
+  border-bottom: 10px solid #dc2a2a; /* Red border */
+  border-radius: 50%; /* Makes it a circle */
+}
+
+.loader {
+  animation: spin 1s linear infinite; /* Spins continuously */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
