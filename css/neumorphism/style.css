@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #e8e8e8;
+}
+
+button {
+    height: 200px;
+    width: 300px;
+}
+
+.primary-1 {
+    color: #0071bc;
+}
+
+.primary-2 {
+    color: #f73c4a;
+}
+
+.neumorphism {
+    color: #636363;
+    font-size: 30px;
+    font-weight: bold;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.neumorphism:hover {
+    border-radius: 1em;
+    box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px #ffffff;
+}
+
+.neumorphism:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
