@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Realistic Glowing Sun</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(ellipse at center, #1a0000 0%, #000 100%);
+        overflow: hidden;
+        height: 100%;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="sunCanvas"></canvas>
+
+    <script>
+      const canvas = document.getElementById("sunCanvas");
+      const ctx = canvas.getContext("2d");
+      let width, height;
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      const centerX = () => width / 2;
+      const centerY = () => height / 2;
+      const sunRadius = 120;
+
+      function drawSunGlow() {
+        const glowGradient = ctx.createRadialGradient(
+          centerX(),
+          centerY(),
+          sunRadius,
+          centerX(),
+          centerY(),
+          sunRadius * 3
+        );
+
+        glowGradient.addColorStop(0, "rgba(255, 200, 0, 0.3)");
+        glowGradient.addColorStop(0.4, "rgba(255, 100, 0, 0.2)");
+        glowGradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+        ctx.beginPath();
+        ctx.arc(centerX(), centerY(), sunRadius * 3, 0, Math.PI * 2);
+        ctx.fillStyle = glowGradient;
+        ctx.fill();
+      }
+
+      function drawSunCore() {
+        const coreGradient = ctx.createRadialGradient(
+          centerX(),
+          centerY(),
+          0,
+          centerX(),
+          centerY(),
+          sunRadius
+        );
+        coreGradient.addColorStop(0, "#fff500");
+        coreGradient.addColorStop(0.4, "#ffaa00");
+        coreGradient.addColorStop(0.8, "#ff3300");
+        coreGradient.addColorStop(1, "rgba(0,0,0,0)");
+
+        ctx.beginPath();
+        ctx.arc(centerX(), centerY(), sunRadius, 0, Math.PI * 2);
+        ctx.fillStyle = coreGradient;
+        ctx.fill();
+      }
+
+      function drawSolarFlare(time) {
+        const flareCount = 60;
+        for (let i = 0; i < flareCount; i++) {
+          const angle = (i / flareCount) * Math.PI * 2 + time * 0.0003;
+          const wave = Math.sin(time * 0.002 + i * 2) * 15;
+          const dist = sunRadius + 30 + wave;
+          const x = centerX() + Math.cos(angle) * dist;
+          const y = centerY() + Math.sin(angle) * dist;
+
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, ${
+            150 + Math.sin(time * 0.005 + i) * 100
+          }, 0, ${0.05 + Math.random() * 0.05})`;
+          ctx.arc(x, y, 3 + Math.random() * 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function animate(time) {
+        // Semi-transparent black for trail/fade effect
+        ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+        ctx.fillRect(0, 0, width, height);
+
+        drawSunGlow();
+        drawSunCore();
+        drawSolarFlare(time);
+
+        requestAnimationFrame(animate);
+      }
+
+      animate(0);
+    </script>
+  </body>
+</html>
